@@ -287,3 +287,80 @@ Write a program to:
 - Print the count  
 - Print every number divisible by 3  
 
+# 🔢 For Loop Example – Multiplication Table
+
+This program prints the **multiplication table** of any number given by the user.  
+It uses a simple **for loop** that runs from 1 to 10.
+
+---
+
+## 💻 Code Example
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String args[]) {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Which multiplication table do you want?");
+        int num = in.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i + " x " + num + " = " + (i * num));
+        }
+    }
+}
+```
+
+---
+
+## 🧠 How It Works
+
+- Loop runs **10 times** → i = 1 to 10  
+- On each iteration:  
+  ```
+  i × num
+  ```  
+- Prints multiplication value in table format  
+
+---
+
+## ✔️ Example Input
+```
+5
+```
+
+## ✔️ Example Output
+```
+1 x 5 = 5
+2 x 5 = 10
+3 x 5 = 15
+4 x 5 = 20
+5 x 5 = 25
+6 x 5 = 30
+7 x 5 = 35
+8 x 5 = 40
+9 x 5 = 45
+10 x 5 = 50
+```
+
+---
+
+## ⭐ Why This Example Is Important?
+- Helps understand loop repetition  
+- Shows how variables change each iteration  
+- Real-world use: tables, bills, repeated tasks  
+
+---
+
+## 🔥 Practice Task
+
+Modify the program so that the user enters:
+- **Start value**
+- **End value**
+
+Print the multiplication table from start to end.  
+Example: 3 to 7 → Table of 3, 4, 5, 6, 7.
+
