@@ -14,7 +14,7 @@
 | 10 | While Loop | [Open](While%20Loop/README.md) |
 | 11 | Do-While Loop | [Open](Do%20While%20Loop/README.md) |
 | 12 | Classes and Objects | [Open](Classes%20and%20Objects/README.md) |
-| 13 | Methods / Functions | [Open](Methods/README.md) |
+| 13 | Methods  | [Open](Methods/README.md) |
 | 14 | Parameterized Methods | [Open](Parameterized%20Methods/README.md) |
 | 15 | Return Keyword | [Open](Return%20Keyword/README.md) |
 | 16 | Method Overloading | [Open](Method%20Overloading/README.md) |
