@@ -164,3 +164,123 @@ Access it in child class `Car`.
 Create class `Person` with default variable age.  
 Try accessing it from another package.
 
+# 🔐 Access Modifiers – Which Is Accessible? (Simple Example)
+
+This example shows **which variables can be accessed** from a child class object based on **access modifiers**.
+
+---
+
+## 💻 Code Example
+
+```java
+class Person {
+
+    public String name;                // public → accessible everywhere
+    protected int age;                 // protected → accessible in subclass
+    private String socialSecurityNumber; // private → ONLY inside Person class
+    String address;                    // default → same package only
+
+    Person(String name, int age, String ssn, String address) {
+        this.name = name;
+        this.age = age;
+        this.socialSecurityNumber = ssn;
+        this.address = address;
+    }
+}
+
+class Employee extends Person {
+
+    Employee(String name, int age, String ssn, String address) {
+        super(name, age, ssn, address);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Employee e1 = new Employee("Arctic", 20, "IQ23S", "Erode");
+
+        System.out.println(e1.name);      // ✅ allowed (public)
+        System.out.println(e1.age);       // ✅ allowed (protected)
+        // System.out.println(e1.socialSecurityNumber); ❌ ERROR
+        System.out.println(e1.address);   // ✅ allowed (default, same package)
+    }
+}
+```
+
+---
+
+## ❌ Compile-Time Error Explanation
+
+```java
+System.out.println(e1.socialSecurityNumber);
+```
+
+❌ ERROR because:
+
+- `socialSecurityNumber` is **private**
+- Private variables are accessible **ONLY inside the same class**
+- Even a child class **cannot access private data**
+
+---
+
+## ✅ Correct Output (After Commenting Private Access)
+
+```
+Arctic
+20
+Erode
+```
+
+---
+
+## 🧠 Access Modifier Rules (Quick Table)
+
+| Modifier | Same Class | Subclass | Same Package | Other Package |
+|--------|------------|----------|--------------|---------------|
+| public | ✅ | ✅ | ✅ | ✅ |
+| protected | ✅ | ✅ | ✅ | ❌ |
+| default | ✅ | ❌ | ✅ | ❌ |
+| private | ✅ | ❌ | ❌ | ❌ |
+
+---
+
+## ✅ How to Access `private` Variable Properly?
+
+Use **getter method** inside the class.
+
+```java
+class Person {
+    private String socialSecurityNumber;
+
+    public String getSSN() {
+        return socialSecurityNumber;
+    }
+}
+```
+
+Then access like:
+
+```java
+System.out.println(e1.getSSN());
+```
+
+---
+
+## ⭐ Key Takeaways
+
+- `public` → everywhere  
+- `protected` → subclass allowed  
+- `default` → same package only  
+- `private` → SAME CLASS ONLY  
+- Private data needs **getter/setter**
+
+---
+
+## 🔥 Practice Task
+
+1. Make `balance` private in `BankAccount`
+2. Create `deposit()` and `getBalance()` methods
+3. Try accessing balance directly → observe error
+4. Access using method → works ✅
+
