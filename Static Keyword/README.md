@@ -178,3 +178,133 @@ Create class `IDGenerator` with:
 - Constructor increases id  
 Print IDs for 3 objects.
 
+
+# ✅ `final` Keyword in Java (Simple Explanation)
+
+The **final keyword** is used to say **“this cannot be changed”**.
+
+`final` can be used with:
+1. Variables  
+2. Methods  
+3. Classes  
+
+---
+
+# ⭐ 1. `final` Variable (Constant)
+
+A `final` variable’s value **cannot be changed** once initialized.
+
+```java
+class Demo {
+    final int speed = 120;
+
+    void show() {
+        // speed = 150; // ❌ Error
+        System.out.println(speed);
+    }
+}
+```
+
+✅ Value is fixed  
+✅ Used for constants  
+
+---
+
+# ⭐ 2. `final` Method (Cannot be Overridden)
+
+When a method is marked `final`,  
+**child class cannot override it**.
+
+```java
+class Parent {
+    final void display() {
+        System.out.println("Parent display method");
+    }
+}
+
+class Child extends Parent {
+    // void display() { } ❌ Error
+}
+```
+
+✅ Ensures method behavior stays same  
+
+---
+
+# ⭐ 3. `final` Class (Cannot be Inherited)
+
+A `final` class **cannot be extended** by any class.
+
+```java
+final class Vehicle {
+    void run() {
+        System.out.println("Vehicle running");
+    }
+}
+
+// class Car extends Vehicle { } ❌ Error
+```
+
+✅ Used for security  
+✅ Prevents inheritance  
+
+---
+
+# 💻 Example – All `final` Types Together
+
+```java
+final class Bank {
+
+    final double interestRate = 7.5;
+
+    final void showRate() {
+        System.out.println("Interest Rate: " + interestRate);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Bank b = new Bank();
+        b.showRate();
+    }
+}
+```
+
+---
+
+# ⭐ Summary Table
+
+| Usage | Meaning |
+|------|---------|
+| final variable | Value cannot change |
+| final method | Cannot override |
+| final class | Cannot inherit |
+
+---
+
+# ⚠ Important Notes
+
+- `final` variable must be initialized once  
+- Can be initialized in:
+  - declaration  
+  - constructor  
+- Final methods are inherited but NOT overridden  
+- Final class methods can be overridden ❌ (since class itself can't be inherited)
+
+---
+
+# 🔥 Practice Tasks
+
+### ✔ Task 1  
+Create a final variable `PI = 3.14` and try changing it.
+
+### ✔ Task 2  
+Create parent class with final method `rules()`.  
+Try overriding in child class and observe error.
+
+### ✔ Task 3  
+Create a final class `SecuritySystem`.  
+Try extending it and see compiler error.
+
+
