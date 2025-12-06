@@ -416,4 +416,129 @@ Modify this program:
 2. Print it with every object
 3. Observe how value is shared
 
+# 🚗 Java OOP – All-in-One Example  
+(Abstract Class + Final Method + Static Method + Inheritance)
+
+This program demonstrates multiple Java OOP concepts in a single example:
+- **Abstract class**
+- **final method**
+- **static method**
+- **Inheritance**
+- **Runtime object usage**
+
+---
+
+## 💻 Code Example
+
+```java
+abstract class Vehicle {
+
+    // final method - cannot be overridden
+    final void startEngine() {
+        System.out.println("Engine started");
+    }
+
+    // static method - belongs to class
+    static String getVehicleType() {
+        return "2 wheeler or 4 wheeler";
+    }
+}
+
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Steering with gear and accelerating");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    void drive() {
+        System.out.println("Handle with gear and accelerating");
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        Car c1 = new Car();
+        Motorcycle m1 = new Motorcycle();
+
+        System.out.println(Vehicle.getVehicleType()); // static method call
+
+        m1.startEngine();   // final method (from Vehicle)
+        m1.drive();         // child class method
+    }
+}
+```
+
+---
+
+## ✔ Output
+
+```
+2 wheeler or 4 wheeler
+Engine started
+Handle with gear and accelerating
+```
+
+---
+
+## 🧠 Concept-wise Explanation
+
+### 🔹 Abstract Class
+```java
+abstract class Vehicle
+```
+- Cannot create object directly  
+- Used as a base class  
+
+---
+
+### 🔹 final Method
+```java
+final void startEngine()
+```
+- Cannot be overridden by child classes  
+- Same behaviour for all vehicles  
+
+---
+
+### 🔹 static Method
+```java
+static String getVehicleType()
+```
+- Belongs to class, not object  
+- Called using class name:
+```java
+Vehicle.getVehicleType();
+```
+
+---
+
+### 🔹 Inheritance
+```java
+class Car extends Vehicle
+class Motorcycle extends Vehicle
+```
+- Both inherit `startEngine()`  
+- Both add their own `drive()` behavior  
+
+---
+
+## ⭐ Why This Program Is Important?
+
+✅ Shows **multiple OOP concepts together**  
+✅ Very common **interview-level pattern**  
+✅ Helps understand **real-world design**  
+✅ Perfect reference example for GitHub  
+
+---
+
+## 🔥 Practice Task
+
+1. Add abstract method `maxSpeed()` in `Vehicle`
+2. Override it in:
+   - Car → return 180  
+   - Motorcycle → return 120  
+3. Print max speed in `main()`
+
 
