@@ -307,4 +307,113 @@ Try overriding in child class and observe error.
 Create a final class `SecuritySystem`.  
 Try extending it and see compiler error.
 
+# ⚡ static Keyword – Instance vs Static Variable (Example)
+
+This example clearly shows the difference between:
+- **static variable** (shared by all objects)
+- **instance variable** (separate for each object)
+
+---
+
+## 💻 Code Example
+
+```java
+class Counter {
+
+    static int count = 0;      // static variable (shared)
+    int instanceNumber = 0;    // instance variable (object-specific)
+
+    Counter() {
+        count = count + 1;
+        instanceNumber = instanceNumber + 1;
+    }
+
+    void disp() {
+        System.out.println("InstanceNumber: " + instanceNumber);
+        System.out.println("Count: " + count);
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        Counter c1 = new Counter();
+        c1.disp();
+
+        Counter c2 = new Counter();
+        c2.disp();
+
+        Counter c3 = new Counter();
+        c3.disp();
+    }
+}
+```
+
+---
+
+## ✔ Output
+
+```
+InstanceNumber: 1
+Count: 1
+
+InstanceNumber: 1
+Count: 2
+
+InstanceNumber: 1
+Count: 3
+```
+
+---
+
+## 🧠 Explanation
+
+### 🔹 `static int count`
+- Shared by **all objects**
+- Increases every time new object is created
+- Maintains **overall object count**
+
+### 🔹 `int instanceNumber`
+- Belongs to **each object**
+- Resets to 0 for every new object
+- Becomes `1` for each object
+
+---
+
+## 🔥 Key Observation
+
+| Object | instanceNumber | count |
+|------|---------------|-------|
+| c1 | 1 | 1 |
+| c2 | 1 | 2 |
+| c3 | 1 | 3 |
+
+✅ Static variable remembers old value  
+✅ Instance variable starts fresh for every object  
+
+---
+
+## ⭐ Why Use static Here?
+
+- To count how many objects are created  
+- To store common/shared data  
+- Memory efficient  
+
+---
+
+## ✅ Real-World Use Cases
+
+- Auto-increment IDs  
+- Counting total users/logins  
+- Common configuration values  
+
+---
+
+## 🔥 Practice Task
+
+Modify this program:
+1. Add static variable `companyName`
+2. Print it with every object
+3. Observe how value is shared
+
 
